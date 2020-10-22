@@ -6,15 +6,23 @@ class MaterialDrawer extends StatelessWidget {
        padding: EdgeInsets.zero,
       children: const <Widget>[
         DrawerHeader(
+          padding: EdgeInsets.all(0),
           decoration: BoxDecoration(
-            color: Colors.blue,
+            image: DecorationImage(
+                image: AssetImage("assets/images/arjun_1.jpeg"),
+                fit: BoxFit.fitWidth
+              )
           ),
-          child: FittedBox(
-            child : Image(
-            image:AssetImage('assets/images/arjun.jpeg'),
-             fit: BoxFit.fitWidth 
-            )
-        ),
+          child: Text('''
+
+
+
+
+
+
+  
+    Arjun Satish 
+    +919895528944''',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold)),
         ),
         ListTile(
           leading: Icon(Icons.message),

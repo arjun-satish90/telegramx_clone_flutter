@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_telegram_x/models/message_model.dart';
 
 class ChatItem extends StatelessWidget {
+
+  Message chat;
+  ChatItem(Message chat){
+   this.chat = chat;
+  }
+
+
   get _firstPart => Row(
         children: [
           CircleAvatar(
               radius: 35.0,
-              backgroundImage: AssetImage('assets/images/twitter.png'))
+              backgroundImage: AssetImage(this.chat.sender.imageUrl))
         ],
       );
 
@@ -34,7 +42,7 @@ class ChatItem extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text("Arjun Satish ",
+                      Text(chat.sender.name,
                       style: TextStyle(
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
@@ -44,7 +52,7 @@ class ChatItem extends StatelessWidget {
                         padding: const EdgeInsets.all(1.0),
                         width: MediaQuery.of(context).size.width * .50,
                         child: Text(
-                            "Hello Goodmorning, How are you doing today. Its been a awesome day yesterday",
+                            this.chat.text,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis),
                       )
@@ -55,6 +63,7 @@ class ChatItem extends StatelessWidget {
                     children: [
                       Text("Tue"),
                       SizedBox(height: 15.0),
+                      this.chat.unread ?
                       Container(
                         width: 40.0,
                         height: 20.0,
@@ -71,7 +80,7 @@ class ChatItem extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                      )
+                      ):Text('')
                     ],
                   )
                 ],

@@ -1,5 +1,3 @@
-
-
 import 'package:flutter_telegram_x/models/user_model.dart';
 
 class Message {
@@ -76,9 +74,16 @@ List<Message> chats = [
     unread: true,
   ),
   Message(
+    sender: greg,
+    time: '4:30 PM',
+    text: 'Hey, Did you go to gym today',
+    isLiked: false,
+    unread: true,
+  ),
+  Message(
     sender: olivia,
     time: '4:30 PM',
-    text: 'Hey, how\'s it going? What did you do today?',
+    text: 'Hey, how\'s work?',
     isLiked: false,
     unread: true,
   ),
