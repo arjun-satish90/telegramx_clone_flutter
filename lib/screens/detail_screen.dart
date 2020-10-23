@@ -16,26 +16,43 @@ class _DetailScreenState extends State<DetailScreen> {
     final Container msg = Container(
       child: Row(
         children: [
-          CircleAvatar(
-              radius: 35.0,
-              backgroundImage: AssetImage(message.sender.imageUrl)),
           Container(
-            padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-            height: 100,
-            width: MediaQuery.of(context).size.width * 0.7,
-            child: Card(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0),),
-              color: Colors.white,
+            margin: isMe
+          ? EdgeInsets.only(
+              top: 4.0,
+              left: 58.0,
+            )
+          : EdgeInsets.only(
+              top: 4.0
+            ),
+            padding: EdgeInsets.fromLTRB(5, 5, 5, 5),
+            width: MediaQuery.of(context).size.width * 0.75,
+            child: isMe ? Card(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topLeft: Radius.circular(15.0),bottomLeft: Radius.circular(15.0),
+              bottomRight: Radius.circular(15.0), topRight: Radius.circular(5.0))),
+              color: Colors.green,
               elevation: 5,
               child: Container(
-                padding: EdgeInsets.all(7.0),
+                padding: EdgeInsets.all(10.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Text(message.sender.name, 
-                    style: TextStyle(color:Colors.blue, fontSize: 
-                    17.0),),
-                    Text(message.text)
+                    Text(message.text,style: TextStyle(fontSize: 16.0))
+                  ],
+                ),
+              ),
+            ):
+            Card(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(topRight: Radius.circular(15.0),bottomRight: Radius.circular(15.0),
+               bottomLeft: Radius.circular(15.0), topLeft: Radius.circular(5.0))),
+              color: Colors.white,
+              elevation: 5,
+              child: Container(
+                padding: EdgeInsets.all(10.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(message.text, style: TextStyle(fontSize: 16.0),)
                   ],
                 ),
               ),
@@ -54,7 +71,22 @@ class _DetailScreenState extends State<DetailScreen> {
         appBar: AppBar(
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [Text(this.widget.chat.sender.name)],
+            children: [
+            Row(
+              children: [
+                CircleAvatar(
+              radius: 25.0,
+              backgroundImage: AssetImage(this.widget.chat.sender.imageUrl)),
+              SizedBox( width: 8.0),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(this.widget.chat.sender.name),
+                     Text("Seen 2 hours ago",style:TextStyle(fontSize: 14.0,color:Color.fromARGB(224,240,233,233)),)
+                  ],
+                ),
+              ],
+            )],
           ),
         ),
         body: Container(
