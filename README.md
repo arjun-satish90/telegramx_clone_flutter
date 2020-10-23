@@ -1,16 +1,12 @@
-# flutter_telegram_x
+# Telegram X Clone written in Flutter
 
-A new Flutter application.
+Intention of this project is to create a TelegramX clone in Flutter. For the initial phase only the 2 major screens are created and that too with local data and add more feature over the course of time.
+
+This project is a work in progress and I am taking baby steps in Flutter, so please feel to reach out to me if there are issues and expecting good PR's from the open source community.
+
+![Home Screen](screenshots/home.png)
+![Side Menu](screenshots/sidemenu.png)
+![Detail Screen](screenshots/detail.png)
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
